@@ -2,14 +2,20 @@
 import PageContainer from '@/components/container/PageContainer';
 import { user } from '@/data/data';
 import { FiCamera } from "react-icons/fi";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Image from 'next/image';
 import { useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
+import { PiEyeLight, PiEyeSlash } from 'react-icons/pi';
 
 const Page = () => {
     const [activeTab, setActiveTab] = useState('profile');
     const [previewImage, setPreviewImage] = useState("/images/avatar.png");
     const fileInputRef = useRef(null);
+
+    const [showCurrentPassword, setShowCurrentPassword] = useState(false);
+    const [showNewPassword, setShowNewPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     const { register, handleSubmit, reset } = useForm({
         defaultValues: {
@@ -57,7 +63,7 @@ const Page = () => {
                         {/* Camera Button */}
                         <div
                             onClick={() => fileInputRef.current?.click()}
-                            className='absolute flex justify-center items-center p-1.5 w-8 h-8 border-2 border-white bg-teal-600 rounded-full top-16 -right-2 cursor-pointer'
+                            className='absolute flex justify-center items-center p-1.5 w-8 h-8 border-2 border-white bg-[#5CA97E] rounded-full top-16 -right-2 cursor-pointer'
                         >
                             <FiCamera size={22} color='#fff' />
                         </div>
@@ -81,7 +87,7 @@ const Page = () => {
                     <button
                         onClick={() => setActiveTab('profile')}
                         className={`pb-2 border-b-2 cursor-pointer ${activeTab === 'profile'
-                            ? 'border-teal-500 text-teal-500 font-semibold'
+                            ? 'border-[#5CA97E] text-[#5CA97E] font-semibold'
                             : 'border-transparent text-gray-600'
                             }`}
                     >
@@ -90,7 +96,7 @@ const Page = () => {
                     <button
                         onClick={() => setActiveTab('password')}
                         className={`pb-2 border-b-2 cursor-pointer ${activeTab === 'password'
-                            ? 'border-teal-500 text-teal-500 font-semibold'
+                            ? 'border-[#5CA97E] text-[#5CA97E] font-semibold'
                             : 'border-transparent text-gray-600'
                             }`}
                     >
@@ -111,7 +117,7 @@ const Page = () => {
                                 <input
                                     type="text"
                                     {...register('name')}
-                                    className="w-full border border-teal-400 rounded-md p-2 outline-none"
+                                    className="w-full border border-[#5CA97E] rounded-md p-2 outline-none"
                                 />
                             </div>
 
@@ -120,7 +126,7 @@ const Page = () => {
                                 <input
                                     type="email"
                                     {...register('email')}
-                                    className="w-full border border-teal-400 rounded-md p-2 outline-none"
+                                    className="w-full border border-[#5CA97E] rounded-md p-2 outline-none"
                                 />
                             </div>
 
@@ -129,7 +135,7 @@ const Page = () => {
                                 <input
                                     type="text"
                                     {...register('contact')}
-                                    className="w-full border border-teal-400 rounded-md p-2 outline-none"
+                                    className="w-full border border-[#5CA97E] rounded-md p-2 outline-none"
                                 />
                             </div>
 
@@ -138,12 +144,12 @@ const Page = () => {
                                 <input
                                     type="text"
                                     {...register('address')}
-                                    className="w-full border border-teal-400 rounded-md p-2 outline-none"
+                                    className="w-full border border-[#5CA97E] rounded-md p-2 outline-none"
                                 />
                             </div>
 
                             <div className='w-full text-center'>
-                                <button type="submit" className="mt-4 px-8 bg-teal-500 hover:bg-teal-600 text-white py-2 rounded-md cursor-pointer">
+                                <button type="submit" className="mt-4 px-8 bg-[#5CA97E] hover:bg-[#5CA97E] text-white py-2 rounded-md cursor-pointer">
                                     Save Changes
                                 </button>
                             </div>
@@ -156,35 +162,53 @@ const Page = () => {
                                 Change Password
                             </h3>
 
-                            <div>
+                            <div className="relative">
                                 <label className="block mb-1 font-medium">Current Password</label>
                                 <input
-                                    type="password"
+                                    type={showCurrentPassword ? 'text' : 'password'}
                                     {...register('currentPassword')}
-                                    className="w-full border border-teal-400 rounded-md p-2 outline-none"
+                                    className="w-full border border-[#5CA97E] rounded-md p-2 outline-none"
                                 />
+                                <div
+                                    className="absolute right-3 top-9 cursor-pointer"
+                                    onClick={() => setShowCurrentPassword(!showCurrentPassword)}
+                                >
+                                    {showCurrentPassword ? <PiEyeLight color='#5CA97E' size={25}/> : <PiEyeSlash color='#5CA97E' size={25}/>}
+                                </div>
                             </div>
 
-                            <div>
+                            <div className="relative">
                                 <label className="block mb-1 font-medium">New Password</label>
                                 <input
-                                    type="password"
+                                    type={showNewPassword ? 'text' : 'password'}
                                     {...register('newPassword')}
-                                    className="w-full border border-teal-400 rounded-md p-2 outline-none"
+                                    className="w-full border border-[#5CA97E] rounded-md p-2 outline-none"
                                 />
+                                <div
+                                    className="absolute right-3 top-9 cursor-pointer"
+                                    onClick={() => setShowNewPassword(!showNewPassword)}
+                                >
+                                    {showNewPassword ? <PiEyeLight color='#5CA97E' size={25}/> : <PiEyeSlash color='#5CA97E' size={25}/>}
+                                </div>
                             </div>
 
-                            <div>
+                            <div className="relative">
                                 <label className="block mb-1 font-medium">Confirm New Password</label>
                                 <input
-                                    type="password"
+                                    type={showConfirmPassword ? 'text' : 'password'}
                                     {...register('confirmPassword')}
-                                    className="w-full border border-teal-400 rounded-md p-2 outline-none"
+                                    className="w-full border border-[#5CA97E] rounded-md p-2 outline-none"
                                 />
+                                <div
+                                    className="absolute right-3 top-9 cursor-pointer"
+                                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                >
+                                    {showConfirmPassword ? <PiEyeLight color='#5CA97E' size={25}/> : <PiEyeSlash color='#5CA97E' size={25}/>}
+                                </div>
                             </div>
 
                             <div className='w-full text-center'>
-                                <button type="submit" className="mt-4 px-8 bg-teal-500 hover:bg-teal-600 text-white py-2 rounded-md cursor-pointer">
+                                <button type="submit" className="mt-4 px-8 bg-[#5CA97E] hover:bg-[#5CA97E] text-white py-2 rounded-md cursor-pointer">
                                     Save Changes
                                 </button>
                             </div>

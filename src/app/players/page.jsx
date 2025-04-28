@@ -1,7 +1,7 @@
 "use client";
 import PageContainer from "@/components/container/PageContainer";
 import Pagination from "@/components/pagination/Pagination";
-import UserTable from "@/components/table/user-table/UserTable";
+import PlayersTable from "@/components/table/players-table/PlayersTable";
 import { users as seed } from "@/data/data";
 import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
@@ -11,10 +11,16 @@ import { FiSearch } from "react-icons/fi";
 const initialUsers = seed.map((u) => ({ ...u, blocked: false }));
 
 export default function Players() {
-  const pageSize = 10;
+  const pageSize = 9;
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [data, setData] = useState(initialUsers);
+  const [viewModal, setViewModal] = useState(false)
+
+  const handleView = (player) => {
+    console.log(player);
+    setViewModal(true)
+  }
 
   /* block / unblock toggle */
   const handleBlock = (id) =>
@@ -53,7 +59,7 @@ export default function Players() {
 
       {/* table */}
       <div className="overflow-auto h-[74vh] scrl-hide rounded-md border border-gray-200">
-        <UserTable paged={paged} handleBlock={handleBlock}/>
+        <PlayersTable paged={paged} handleBlock={handleBlock} handleView={handleView} />
       </div>
 
       {/* pagination (unchanged) */}
@@ -63,10 +69,32 @@ export default function Players() {
         </span>
 
         <div className="flex items-center gap-2">
-          <Pagination page={page} setPage={setPage} pageCount={pageCount}/>
+          <Pagination page={page} setPage={setPage} pageCount={pageCount} />
         </div>
 
       </div>
+
+      {viewModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-green-100 p-6 rounded-lg shadow-lg w-full max-w-md h-2/3 flex flex-col justify-between">
+
+            <h1 className="text-2xl font-semibold text-center text-black">
+              This is a Modal
+            </h1>
+
+            <div className="flex justify-center mt-4">
+              <button
+                onClick={() => setViewModal(false)}
+                className="px-6 py-2 bg-red-500 hover:bg-red-600 text-white font-medium rounded-md"
+              >
+                Cancel
+              </button>
+            </div>
+
+          </div>
+        </div>
+      )}
+
     </PageContainer>
   );
 }

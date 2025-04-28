@@ -1,7 +1,7 @@
 import { LuEye } from "react-icons/lu";
 import { MdBlockFlipped } from "react-icons/md";
 
-const UserTable = ({ paged, handleBlock }) => {
+const PlayersTable = ({ paged, handleBlock, handleView }) => {
     return (
         <>
             <table className="min-w-full text-sm ">
@@ -35,13 +35,14 @@ const UserTable = ({ paged, handleBlock }) => {
                             </td> */}
                             <td className="px-4 py-3 flex justify-center gap-2">
                                 <button
+                                    onClick={()=>handleView(u)}
                                     className="w-8 h-8 flex items-center justify-center rounded cursor-pointer bg-[#5CA97E]"
                                 >
-                                    <LuEye size={22} color="#fff"/>
+                                    <LuEye size={22} color="#fff" />
                                 </button>
                                 <button
                                     onClick={() => handleBlock(u.id)}
-                                    className={`w-8 h-8 flex items-center justify-center rounded cursor-pointer ${!u.blocked
+                                    className={`w-8 h-8 flex items-center justify-center rounded cursor-pointer ${u.blocked
                                         ? "bg-red-600 hover:bg-red-700"
                                         : "bg-green-600 hover:bg-green-700"
                                         } text-white`}
@@ -57,4 +58,4 @@ const UserTable = ({ paged, handleBlock }) => {
     );
 };
 
-export default UserTable;
+export default PlayersTable;
