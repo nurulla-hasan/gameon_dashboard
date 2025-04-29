@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
             position="top-center"
             reverseOrder={false}
           />
-          <div className="h-screen flex container mx-auto max-w-ful bg-[#1F3D2C]">
+          <div className="h-screen flex container mx-auto max-w-full bg-[#1F3D2C]">
             {/* Sidebar */}
             <div className={`${isHideLayout ? "hidden" : ""} w-64  flex flex-col justify-between pb-10 bg-[#1F3D2C]`}>
               <div>
