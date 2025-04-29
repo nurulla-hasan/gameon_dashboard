@@ -18,13 +18,13 @@ import {
   
   const UserViewModal = ({ setViewModal, data }) => {
     return (
-      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-        <div className="bg-white p-8 rounded-2xl w-full max-w-md space-y-6 relative">
+      <div className="fixed inset-0 bg-black/50 backdrop-blur-xs flex items-center justify-center z-50">
+        <div className="bg-white p-8 rounded-md w-full max-w-lg space-y-7 relative">
   
           {/* Close Button */}
           <button
             onClick={() => setViewModal(false)}
-            className="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-xl font-bold cursor-pointer"
+            className="absolute top-2 right-4 text-gray-400 hover:text-red-500 text-xl font-bold cursor-pointer"
           >
             ✕
           </button>
@@ -57,14 +57,6 @@ import {
             <h3 className="text-sm font-semibold text-gray-800 mb-1">Bio</h3>
             <p className="text-gray-600 text-sm text-justify">{data.bio}</p>
           </div>
-  
-          {/* Close Button Bottom */}
-          <button
-            onClick={() => setViewModal(false)}
-            className="w-full py-2 text-sm bg-red-500 hover:bg-red-600 text-white font-semibold rounded-sm transition duration-200 cursor-pointer"
-          >
-            Close
-          </button>
         </div>
       </div>
     );

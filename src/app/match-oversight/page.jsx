@@ -1,6 +1,6 @@
 "use client";
 import PageContainer from "@/components/container/PageContainer";
-import UserViewModal from "@/components/modal/user-view-modal/UserViewModal";
+import MatchViewModal from "@/components/modal/match-view-modal/MatchViewModal";
 import Pagination from "@/components/pagination/Pagination";
 import MatchTable from "@/components/table/match-table/MatchTable";
 import { matches } from "@/data/data";
@@ -18,9 +18,10 @@ export default function MatchOversight() {
 //   const [data, setData] = useState(initialUsers);
   const [viewModal, setViewModal] = useState(false)
 
-  const [selectedPlayer, setSelectedPlayer] = useState(null);
-  const handleView = (player) => {
-    setSelectedPlayer(player);
+  const [selectedMatch, setSelectedMatch] = useState(null);
+  console.log(selectedMatch);
+  const handleView = (player1, player2) => {
+    setSelectedMatch({player1, player2});
     setViewModal(true)
   }
 
@@ -71,7 +72,7 @@ export default function MatchOversight() {
 
       {
         viewModal && (
-          <UserViewModal setViewModal={setViewModal} data={selectedPlayer} />
+          <MatchViewModal setViewModal={setViewModal} data={selectedMatch} />
         )
       }
 

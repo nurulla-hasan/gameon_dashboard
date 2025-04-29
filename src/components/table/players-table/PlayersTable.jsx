@@ -4,7 +4,7 @@ import { MdBlockFlipped } from "react-icons/md";
 const PlayersTable = ({ paged, handleBlock, handleView }) => {
     return (
         <>
-            <table className="min-w-full text-sm ">
+            <table className="min-w-full text-sm">
                 <thead className="bg-[#5CA97E] text-white sticky top-0">
                     <tr>
                         <th className="px-4 py-3 ">#SL no.</th>
@@ -12,7 +12,6 @@ const PlayersTable = ({ paged, handleBlock, handleView }) => {
                         <th className="px-4 py-3 text-left">Email</th>
                         <th className="px-4 py-3">Golf Handicap</th>
                         <th className="px-4 py-3 ">Matches Played</th>
-                        {/* <th className="px-4 py-3 text-left">Status</th> */}
                         <th className="px-4 py-3 text-center">Action</th>
                     </tr>
                 </thead>
@@ -20,7 +19,7 @@ const PlayersTable = ({ paged, handleBlock, handleView }) => {
                     {paged.map((u) => (
                         <tr
                             key={u.id}
-                            className={`odd:bg-gray-50`}>
+                            className={`odd:bg-gray-100 even:bg-white font-semibold`}>
                             <td className="px-4 py-3 text-center">{u.id}</td>
                             <td className="px-4 py-3 flex items-center gap-2">
                                 <img src={u.avatar} alt="" className="w-9 h-9 rounded-full" />
@@ -29,11 +28,7 @@ const PlayersTable = ({ paged, handleBlock, handleView }) => {
                             <td className="px-4 py-3">{u.email}</td>
                             <td className="px-4 py-3 text-center">{u.golfHandicap}</td>
                             <td className="px-4 py-3 text-center">{u.matchPlayed}</td>
-                            {/* <td className={`px-4 py-3`}>{u.blocked
-                                ? <span className="bg-red-500 text-white text-sm font-medium py-1 px-3 rounded-full transition duration-300 ease-in-out transform hover:scale-105">Blocked</span>
-                                : <span className="bg-green-500 text-white text-sm font-medium py-1 px-3 rounded-full transition duration-300 ease-in-out transform hover:scale-105">Unblocked</span>}
-                            </td> */}
-                            <td className="px-4 py-3 flex justify-center gap-2">
+                            <td className="px-4 py-3 flex justify-center gap-4">
                                 <button
                                     onClick={()=>handleView(u)}
                                     className="w-8 h-8 flex items-center justify-center rounded cursor-pointer bg-[#5CA97E]"

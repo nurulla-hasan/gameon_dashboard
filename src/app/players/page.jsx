@@ -12,7 +12,7 @@ import { FiSearch } from "react-icons/fi";
 const initialUsers = seed.map((u) => ({ ...u, blocked: false }));
 
 export default function Players() {
-  const pageSize = 9;
+  const pageSize = 10;
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [data, setData] = useState(initialUsers);

@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 
@@ -58,50 +59,61 @@ const VerifyEmailForm = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen p-3 text-white">
-      <div className="border bg-[#FEFEFEE6] p-14 rounded-2xl w-full max-w-md">
-        <h1 className="text-2xl font-medium text-center text-[#333333] mb-4">
-          Check Your Email
-        </h1>
-        <p className="text-center text-[#333333] mb-16 max-w-xs text-xs">
-          We sent a code to your email address. Please enter the 6-digit code.
-        </p>
+    <div className="flex items-center justify-center min-h-screen text-white">
+      <div className="flex-1 flex justify-center items-center">
+        <div className="p-14 rounded-2xl w-full max-w-md">
+          <h1 className="text-2xl font-medium text-center text-[#333333] mb-4">
+            Check Your Email
+          </h1>
+          <p className="text-center text-[#333333] mb-16 max-w-xs text-xs">
+            We sent a code to your email address. Please enter the 6-digit code.
+          </p>
 
-        <form onSubmit={handleSubmit}>
-          <div className="flex justify-center gap-4 mb-16">
-            {code.map((digit, index) => (
-              <input
-                key={index}
-                ref={(el) => (inputRefs.current[index] = el)}
-                type="text"
-                maxLength={1}
-                value={digit}
-                onChange={(e) => handleChange(index, e.target.value)}
-                onKeyDown={(e) => handleKeyDown(index, e)}
-                onPaste={index === 0 ? handlePaste : undefined}
-                className="w-10 h-10 text-center border border-[#00A89D] rounded-xl text-lg text-black font-normal focus:outline-none focus:border-[#00A89D]"
-              />
-            ))}
+          <form onSubmit={handleSubmit}>
+            <div className="flex justify-center gap-4 mb-16">
+              {code.map((digit, index) => (
+                <input
+                  key={index}
+                  ref={(el) => (inputRefs.current[index] = el)}
+                  type="text"
+                  maxLength={1}
+                  value={digit}
+                  onChange={(e) => handleChange(index, e.target.value)}
+                  onKeyDown={(e) => handleKeyDown(index, e)}
+                  onPaste={index === 0 ? handlePaste : undefined}
+                  className="w-10 h-10 text-center border border-[#1F3D2C] rounded-xl text-lg text-black font-normal focus:outline-none focus:border-[#1F3D2C]"
+                />
+              ))}
+            </div>
+
+            <button
+              type="submit"
+              disabled={isSubmitting || code.join("").length !== 6}
+              className="w-full bg-[#1F3D2C] border border-gray-400 disabled:cursor-not-allowed text-white py-2 text-xs px-4  hover:bg-[#428a6b] transition duration-200 cursor-pointer disabled:opacity-70"
+            >
+              {isSubmitting ? "Verifying..." : "Verify"}
+            </button>
+          </form>
+
+          <div className="mt-16 text-center text-sm text-[#333333]">
+            Didn’t receive the code?{" "}
+            <button
+              onClick={handleResend}
+              className="text-[#1F3D2C] font-medium hover:underline cursor-pointer"
+            >
+              Resend
+            </button>
           </div>
-
-          <button
-            type="submit"
-            disabled={isSubmitting || code.join("").length !== 6}
-            className="w-full bg-[#00A89D] border border-gray-400 disabled:cursor-not-allowed text-white py-2 text-xs px-4  hover:bg-[#428a86] transition duration-200 cursor-pointer disabled:opacity-70"
-          >
-            {isSubmitting ? "Verifying..." : "Verify"}
-          </button>
-        </form>
-
-        <div className="mt-16 text-center text-sm text-[#333333]">
-          Didn’t receive the code?{" "}
-          <button
-            onClick={handleResend}
-            className="text-[#00A89D] font-medium hover:underline cursor-pointer"
-          >
-            Resend
-          </button>
         </div>
+      </div>
+      <div className="flex-1">
+        <Image
+          src="/images/auth-image.png"
+          alt=""
+          width={500}
+          height={500}
+          className="h-screen w-full"
+        />
       </div>
     </div>
   );

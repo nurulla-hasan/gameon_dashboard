@@ -81,7 +81,7 @@ const Terms = () => {
         </div>
 
         <div className="flex justify-center bg-[#f8f8f8]">
-          <button onClick={handleSave} className="px-6 py-2 bg-[#5CA97E] text-white rounded-md hover:bg-[#549972] transition cursor-pointer">
+          <button onClick={handleSave} className="px-6 py-2 bg-[#5CA97E] text-white rounded-sm text-sm hover:bg-[#549972] transition cursor-pointer">
             Save Changes
           </button>
         </div>

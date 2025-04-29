@@ -1,9 +1,15 @@
+"use client"
 import Image from "next/image";
 import EarningGrowthChart from "@/components/dashboard/EarningGrowthChart";
 import PlayerGrowthChart from "@/components/dashboard/PlayerGrowthChart";
 import PageContainer from "@/components/container/PageContainer";
+import { useState } from "react";
+import { recentMatches } from "@/data/data";
 
 export default function Home() {
+
+  const [matches, setMatches] = useState(recentMatches)
+
   return (
     <PageContainer>
       {/* Top Info */}
@@ -66,6 +72,12 @@ export default function Home() {
           <div className="flex-1/2">
             <PlayerGrowthChart/>
           </div>
+        </div>
+
+        {/* Bottom info  */}
+
+        <div className="h-[36vh] rounded-lg shadow-[0px_4px_4px_0px_#00000040]">
+
         </div>
       </div>
     </PageContainer>
