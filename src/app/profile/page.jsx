@@ -48,7 +48,7 @@ const Page = () => {
     return (
         <PageContainer>
             <h1 className='text-xl font-medium'>Profile</h1>
-            <div className="flex flex-col items-center justify-center min-h-[80vh]">
+            <div className="flex flex-col items-center justify-start min-h-[80vh]">
                 {/* Avatar */}
                 <div className=' flex flex-col justify-center items-center gap-3 mb-6'>
                     <div className='relative'>

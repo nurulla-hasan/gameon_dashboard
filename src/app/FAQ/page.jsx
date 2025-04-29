@@ -1,10 +1,11 @@
+import PageContainer from '@/components/container/PageContainer';
 import React from 'react';
 
 const FAQ = () => {
     return (
-        <div>
+        <PageContainer>
             faq
-        </div>
+        </PageContainer>
     );
 };
 

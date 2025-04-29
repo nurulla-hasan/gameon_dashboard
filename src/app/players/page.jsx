@@ -1,5 +1,6 @@
 "use client";
 import PageContainer from "@/components/container/PageContainer";
+import UserViewModal from "@/components/modal/user-view-modal/UserViewModal";
 import Pagination from "@/components/pagination/Pagination";
 import PlayersTable from "@/components/table/players-table/PlayersTable";
 import { users as seed } from "@/data/data";
@@ -17,8 +18,9 @@ export default function Players() {
   const [data, setData] = useState(initialUsers);
   const [viewModal, setViewModal] = useState(false)
 
+  const [selectedPlayer, setSelectedPlayer] = useState(null);
   const handleView = (player) => {
-    console.log(player);
+    setSelectedPlayer(player);
     setViewModal(true)
   }
 
@@ -74,26 +76,11 @@ export default function Players() {
 
       </div>
 
-      {viewModal && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-green-100 p-6 rounded-lg shadow-lg w-full max-w-md h-2/3 flex flex-col justify-between">
-
-            <h1 className="text-2xl font-semibold text-center text-black">
-              This is a Modal
-            </h1>
-
-            <div className="flex justify-center mt-4">
-              <button
-                onClick={() => setViewModal(false)}
-                className="px-6 py-2 bg-red-500 hover:bg-red-600 text-white font-medium rounded-md"
-              >
-                Cancel
-              </button>
-            </div>
-
-          </div>
-        </div>
-      )}
+      {
+        viewModal && (
+          <UserViewModal setViewModal={setViewModal} data={selectedPlayer} />
+        )
+      }
 
     </PageContainer>
   );

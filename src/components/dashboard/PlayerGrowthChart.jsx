@@ -56,7 +56,7 @@ export default function PlayerGrowthChart() {
                     </div>
                 </div>
             </div>
-            <ResponsiveContainer width="100%" height={180}>
+            <ResponsiveContainer width="100%" height={176}>
                 <BarChart
                     className='text-[10px]'
                     data={chartData[selectedYear]}
@@ -75,13 +75,13 @@ export default function PlayerGrowthChart() {
                         tickLine={false}
                     />
                     <Tooltip wrapperStyle={{ fontSize: '14px' }} />
-                    <Legend
+                    {/* <Legend 
                         layout="horizontal"
                         verticalAlign="top"
                         align="right"
                         iconType="circle"
                         wrapperStyle={{ fontSize: '10px', paddingBottom: '10px' }}
-                    />
+                    /> */}
                     <Bar dataKey="active" fill="#183022" radius={[10, 10, 0, 0]}/>
                     <Bar dataKey="cancel" fill="#5CA97E" radius={[10, 10, 0, 0]}/>
                 </BarChart>
