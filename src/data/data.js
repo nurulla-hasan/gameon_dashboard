@@ -703,6 +703,7 @@ export const user = {
 export const recentMatches = [
   {
     "id": "#01",
+    "avatar" : "/images/avatar.png",
     "participants": "John Smith Vs Emily",
     "date": "April 30 at 10:00 AM",
     "bateAmount": "$50.20",
@@ -711,6 +712,7 @@ export const recentMatches = [
   },
   {
     "id": "#02",
+    "avatar" : "/images/avatar.png",
     "participants": "John Smith Vs Emily",
     "date": "April 30 at 10:00 AM",
     "bateAmount": "$50.20",
@@ -719,10 +721,11 @@ export const recentMatches = [
   },
   {
     "id": "#03",
+    "avatar" : "/images/avatar.png",
     "participants": "John Smith Vs Emily",
     "date": "April 30 at 10:00 AM",
     "bateAmount": "$50.20",
     "win": "John Smith",
     "matchFormat": "Championship (Black)",
-  }
+  },
 ]
