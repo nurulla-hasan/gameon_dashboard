@@ -16,9 +16,9 @@ export default function Home() {
       {/* Top Info */}
       <div className="flex flex-col gap-4 5xl:hidden">
         <div className="text-black">
-          <div className="flex justify-evenly gap-16">
+          <div className="flex gap-16 justify-evenly">
             <div className="flex flex-col justify-center items-center bg-white shadow-[0px_4px_4px_0px_#00000040] rounded-xl py-4 w-full">
-              <div className="flex flex-col gap-5 items-center justify-center ">
+              <div className="flex flex-col items-center justify-center gap-5 ">
                 <h3 className="text-xl font-medium">Total Player</h3>
                 <div className="bg-[#5CA97E] rounded-full w-12 h-12 flex justify-center items-center">
                   <Image
@@ -33,7 +33,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col justify-center items-center bg-white shadow-[0px_4px_4px_0px_#00000040] rounded-xl py-4 w-full">
-              <div className="flex flex-col gap-5 items-center justify-center">
+              <div className="flex flex-col items-center justify-center gap-5">
                 <h3 className="text-xl font-medium">Total Earnings</h3>
                 <div className="bg-[#5CA97E] rounded-full w-12 h-12 flex justify-center items-center">
                   <Image
@@ -48,7 +48,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col justify-center items-center bg-white shadow-[0px_4px_4px_0px_#00000040] rounded-xl py-4 w-full">
-              <div className="flex flex-col gap-5 items-center justify-center ">
+              <div className="flex flex-col items-center justify-center gap-5 ">
                 <h3 className="text-xl font-medium">Total Match</h3>
                 <div className="bg-[#5CA97E] rounded-full w-12 h-12 flex justify-center items-center">
                   <Image
@@ -78,13 +78,13 @@ export default function Home() {
         {/* Bottom info  */}
 
         <div className="rounded-lg shadow-[0px_4px_4px_0px_#00000040] p-5 overflow-auto bg-white">
-          <h2 className="text-lg font-semibold mb-4">Recent Matches</h2>
+          <h2 className="mb-4 text-lg font-semibold">Recent Matches</h2>
           <div className="rounded-md overflow-scroll h-[24vh] scrl-hide border border-gray-200">
             <table className="w-full text-sm text-left">
               <thead className="text-gray-100 bg-[#5CA97E] sticky top-0">
                 <tr>
-                  <th className="py-3 px-2">ID#</th>
-                  <th className="py-3">Participants Name</th>
+                  <th className="px-2 py-3">ID#</th>
+                  <th className="py-3 ">Participants Name</th>
                   <th className="py-3">Date</th>
                   <th className="py-3">Bate Amount</th>
                   <th className="py-3">Win</th>
@@ -94,15 +94,15 @@ export default function Home() {
               <tbody>
                 {recentMatches.map((match, i) => (
                   <tr key={i} className="odd:bg-gray-100">
-                    <td className="py-3 px-2 font-medium">{match.id}</td>
-                    <td className="py-3">
+                    <td className="px-2 py-3 font-medium">{match.id}</td>
+                    <td className="py-3 ">
                       <div className="flex items-center space-x-3">
                         <Image
                           src={match.avatar}
                           alt={match.participants}
                           width={200}
                           height={200}
-                          className="w-8 h-8 rounded-full object-cover"
+                          className="object-cover w-8 h-8 rounded-full"
                         />
                         <span className="font-semibold">{match.participants}</span>
                         <span className="text-black">Vs</span>
@@ -111,7 +111,7 @@ export default function Home() {
                           alt={match.participants}
                           width={200}
                           height={200}
-                          className="w-8 h-8 rounded-full object-cover"
+                          className="object-cover w-8 h-8 rounded-full"
                         />
                         <span className="font-semibold">{match.participants}</span>
                       </div>
