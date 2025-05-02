@@ -8,25 +8,22 @@ import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 
 
-/* ----- attach blocked = false to each user once ----- */
-// const initialUsers = seed.map((u) => ({ ...u, blocked: false }));
-
 export default function MatchOversight() {
   const pageSize = 10;
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
-//   const [data, setData] = useState(initialUsers);
+  const [data, setData] = useState(matches);
   const [viewModal, setViewModal] = useState(false)
 
+  
   const [selectedMatch, setSelectedMatch] = useState(null);
-  console.log(selectedMatch);
   const handleView = (player1, player2) => {
     setSelectedMatch({player1, player2});
     setViewModal(true)
   }
 
   /* filter + paginate */
-  const filtered = matches.filter((u) =>
+  const filtered = data.filter((u) =>
     u.matchName.toLowerCase().includes(query.toLowerCase())
   );
 
@@ -40,7 +37,7 @@ export default function MatchOversight() {
       <div className="flex justify-between ">
         <h1 className="text-xl font-medium">Match Statuses</h1>
         <div className="relative w-72">
-          <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+          <FiSearch className="absolute text-gray-400 -translate-y-1/2 left-3 top-1/2" size={18} />
           <input
             placeholder="Search here..."
             value={query}
@@ -59,7 +56,7 @@ export default function MatchOversight() {
       </div>
 
       {/* pagination (unchanged) */}
-      <div className="flex justify-evenly items-center text-sm">
+      <div className="flex items-center text-sm justify-evenly">
         <span className="text-[#5CA97E]">
           Showing {(page - 1) * pageSize + 1}-{Math.min(page * pageSize, filtered.length)} of {filtered.length}
         </span>
