@@ -16,28 +16,28 @@ const PlayersTable = ({ paged, handleBlock, handleView }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {paged.map((u) => (
+                    {paged.map((user) => (
                         <tr
-                            key={u.id}
+                            key={user.id}
                             className={`odd:bg-gray-100 even:bg-white font-semibold`}>
-                            <td className="px-4 py-3 text-center">{u.id}</td>
-                            <td className="px-4 py-3 flex items-center gap-2">
-                                <img src={u.avatar} alt="" className="w-9 h-9 rounded-full" />
-                                {u.name}
+                            <td className="px-4 py-3 text-center">{user.id}</td>
+                            <td className="flex items-center gap-2 px-4 py-3">
+                                <img src={user.avatar} alt="" className="rounded-full w-9 h-9" />
+                                {user.name}
                             </td>
-                            <td className="px-4 py-3">{u.email}</td>
-                            <td className="px-4 py-3 text-center">{u.golfHandicap}</td>
-                            <td className="px-4 py-3 text-center">{u.matchPlayed}</td>
-                            <td className="px-4 py-3 flex justify-center gap-4">
+                            <td className="px-4 py-3">{user.email}</td>
+                            <td className="px-4 py-3 text-center">{user.golfHandicap}</td>
+                            <td className="px-4 py-3 text-center">{user.matchPlayed}</td>
+                            <td className="flex justify-center gap-4 px-4 py-3">
                                 <button
-                                    onClick={()=>handleView(u)}
+                                    onClick={()=>handleView(user)}
                                     className="w-8 h-8 flex items-center justify-center rounded cursor-pointer bg-[#5CA97E]"
                                 >
                                     <LuEye size={22} color="#fff" />
                                 </button>
                                 <button
-                                    onClick={() => handleBlock(u.id)}
-                                    className={`w-8 h-8 flex items-center justify-center rounded cursor-pointer ${u.blocked
+                                    onClick={() => handleBlock(user.id)}
+                                    className={`w-8 h-8 flex items-center justify-center rounded cursor-pointer ${user.blocked
                                         ? "bg-red-600 hover:bg-red-700"
                                         : "bg-green-600 hover:bg-green-700"
                                         } text-white`}

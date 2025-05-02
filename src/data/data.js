@@ -9,7 +9,8 @@ export const users = [
     "win": 74,
     "averageScore": 74,
     "bio": "Avid golfer looking to improve my game!",
-    "avatar": "/images/avatar.png"
+    "avatar": "/images/avatar.png",
+    "blocked": false,
   },
   {
     "id": 2,
@@ -20,7 +21,8 @@ export const users = [
     "win": 68,
     "averageScore": 70,
     "bio": "Love traveling and playing competitive golf.",
-    "avatar": "/images/avatar.png"
+    "avatar": "/images/avatar.png",
+    "blocked": false,
   },
 
   {
@@ -32,7 +34,8 @@ export const users = [
     "win": 60,
     "averageScore": 76,
     "bio": "Weekend warrior on the golf course!",
-    "avatar": "/images/avatar.png"
+    "avatar": "/images/avatar.png",
+    "blocked": false,
   },
   {
     "id": 4,
@@ -43,7 +46,8 @@ export const users = [
     "win": 82,
     "averageScore": 68,
     "bio": "Passionate about golf and fitness.",
-    "avatar": "/images/avatar.png"
+    "avatar": "/images/avatar.png",
+    "blocked": false,
   },
 
   {
@@ -55,7 +59,8 @@ export const users = [
     "win": 66,
     "averageScore": 72,
     "bio": "Always looking to improve my swing!",
-    "avatar": "/images/avatar.png"
+    "avatar": "/images/avatar.png",
+    "blocked": false,
   },
   {
     "id": 6,
@@ -66,7 +71,8 @@ export const users = [
     "win": 88,
     "averageScore": 67,
     "bio": "Golf is my therapy.",
-    "avatar": "/images/avatar.png"
+    "avatar": "/images/avatar.png",
+    "blocked": false,
   },
 
   {
@@ -78,7 +84,8 @@ export const users = [
     "win": 58,
     "averageScore": 78,
     "bio": "Enjoys competitive tournaments and friendly matches.",
-    "avatar": "/images/avatar.png"
+    "avatar": "/images/avatar.png",
+    "blocked": false,
   },
   {
     "id": 8,
@@ -89,7 +96,8 @@ export const users = [
     "win": 75,
     "averageScore": 69,
     "bio": "Golf enthusiast and coach in training.",
-    "avatar": "/images/avatar.png"
+    "avatar": "/images/avatar.png",
+    "blocked": false,
   },
 
   {
@@ -101,7 +109,8 @@ export const users = [
     "win": 62,
     "averageScore": 75,
     "bio": "Love playing golf with friends on weekends.",
-    "avatar": "/images/avatar.png"
+    "avatar": "/images/avatar.png",
+    "blocked": false,
   },
   {
     "id": 10,
@@ -112,7 +121,8 @@ export const users = [
     "win": 90,
     "averageScore": 66,
     "bio": "Future pro golfer in the making!",
-    "avatar": "/images/avatar.png"
+    "avatar": "/images/avatar.png",
+    "blocked": false,
   },
 
   {
@@ -124,7 +134,8 @@ export const users = [
     "win": 65,
     "averageScore": 73,
     "bio": "Big fan of golf history and traditions.",
-    "avatar": "/images/avatar.png"
+    "avatar": "/images/avatar.png",
+    "blocked": false,
   },
   {
     "id": 12,
@@ -135,7 +146,8 @@ export const users = [
     "win": 92,
     "averageScore": 65,
     "bio": "Golf is life. Keep grinding!",
-    "avatar": "/images/avatar.png"
+    "avatar": "/images/avatar.png",
+    "blocked": false,
   },
 
   {
@@ -147,7 +159,8 @@ export const users = [
     "win": 59,
     "averageScore": 77,
     "bio": "Amateur golfer with big dreams.",
-    "avatar": "/images/avatar.png"
+    "avatar": "/images/avatar.png",
+    "blocked": false,
   },
   {
     "id": 14,
@@ -158,7 +171,8 @@ export const users = [
     "win": 78,
     "averageScore": 68,
     "bio": "Golf adventurer and sports lover.",
-    "avatar": "/images/avatar.png"
+    "avatar": "/images/avatar.png",
+    "blocked": false,
   },
 
   {
@@ -170,7 +184,8 @@ export const users = [
     "win": 70,
     "averageScore": 71,
     "bio": "Living for the weekend golf tournaments!",
-    "avatar": "/images/avatar.png"
+    "avatar": "/images/avatar.png",
+    "blocked": false,
   },
 
 ];
